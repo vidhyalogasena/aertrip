@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="WebandApi.ListenersNG"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Test(failed)" verbose="0">
+    <parameter name="colour" value="Black"/>
+    <classes>
+      <class name="Verifyhomepage.page1Test">
+        <methods>
+          <include name="InternationalLogin" invocation-numbers="0 1"/>
+          <include name="intialiseBowser"/>
+          <include name="GBpageone"/>
+        </methods>
+      </class> <!-- Verifyhomepage.page1Test -->
+      <class name="categoryNavigation.validateNavigationTest">
+        <methods>
+          <include name="pdpValidation"/>
+          <include name="filterValidation"/>
+          <include name="mainPageNavValidation"/>
+        </methods>
+      </class> <!-- categoryNavigation.validateNavigationTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

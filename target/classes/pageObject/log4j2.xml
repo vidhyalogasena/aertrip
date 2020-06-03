@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<Properties>
+<!-- basePath will give path till src level -->
+    <Property name="basePath">./logs</Property>
+   
+  </Properties>
+  <Appenders>
+  <!-- To generate log in separate file -->
+   <RollingFile name="File" fileName="${basePath}/prints.log" filePattern="${basePath}/prints-%d{MM-dd-yyyy}.log">
+               
+      <PatternLayout>
+        <Pattern>"%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"</Pattern>
+      </PatternLayout>
+      <!-- Size based is used to define the size of the file.If a file reached 500kb then it will create another file as mentioned in patternlayout -->
+      <SizeBasedTriggeringPolicy size="500"/>
+    </RollingFile>
+    <!-- To generate output in console -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+  <!-- To log only error logs of a class,Additivity is used to avoid duplicate logs.  -->
+  <!--<logger name="Academy. HomepageTest" level="error" additivity="false"></logger>  --> 
+   <!-- level is set to trace to see all log messages,if wants to see only error then"ERROR" -->
+   
+    <Root level="trace">
+    <!-- This decides where to log -->
+      <AppenderRef ref="File"/>
+    </Root>
+  </Loggers>
+</Configuration>
